@@ -5,16 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Secret Weapon</title>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch('drugs.md')
+                .then(response => response.text())
+                .then(text => {
+                    document.getElementById('content').innerHTML = marked(text);
+                });
+        });
+    </script>
 </head>
 <body>
     <div id="content"></div>
-
-    <script>
-        fetch('drugs.md')
-            .then(response => response.text())
-            .then(text => {
-                document.getElementById('content').innerHTML = marked(text);
-            });
-    </script>
 </body>
 </html>
